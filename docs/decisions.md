@@ -33,3 +33,15 @@ neuen Spalte "notes" festgehalten, nicht ignoriert.
 Begründung: Eine "multi"-Kategorie würde die spätere Confusion Matrix unlesbar
 machen. Eine reine "zuerst genannt"-Regel wäre willkürlich (hängt nur von
 Schreibgewohnheit ab), Schweregrad ist eine inhaltliche Regel.
+
+## 2026-09-22: Zwei Korrekturen aus Claude Codes Code-Review des Goldsets
+Kontext: Beim Aufsetzen von score.py wurden zwei weitere Probleme im Goldset gefunden (nicht in der
+manuellen Review erkannt).
+- #19 ("unsubscribe"): war als technical gelabelt, enthält aber kein technisches Signal. Korrigiert zu
+  other, aus demselben Grund wie #9 (kein hinreichendes Signal für eine der vier Kernkategorien).
+- #61: notes widersprachen dem Ticket-Inhalt (nannten "account", obwohl das Ticket nur billing +
+  technical behandelt). Notes korrigiert zu "multi, billing und technical".
+Ergänzend geprüft: #67 (Zweitthema "ignorierte Kündigungs-Einstellung") bleibt technical, nicht
+account – Einstellung wurde vom System nicht korrekt verarbeitet, kein Datenproblem im Konto selbst.
+Begründung: Bestätigt nochmal den Grundsatz, dass Datenfehler im Goldset dem Klassifikator sonst
+fälschlich angelastet würden.

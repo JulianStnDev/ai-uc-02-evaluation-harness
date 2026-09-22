@@ -17,7 +17,7 @@ id,text,category,urgency,sentiment,notes
 16,"Streak ist weg obwohl ich gestern abgehakt habe. Meine Zeitzone ist UTC+1, vielleicht liegt es daran?",technical,medium,negative,
 17,"Bitte ein Widget für Android, auf iOS gibt es das ja schon seit ewigkeiten.",feature-request,low,neutral,
 18,Kann ich meine Daten als CSV exportieren? Ich brauche das für meine Therapie-Dokumentation.,feature-request,low,neutral,
-19,unsubscribe,technical,low,neutral,
+19,unsubscribe,other,low,neutral,
 20,"Die Benachrichtigungen kommen nicht mehr an, seit ich auf iOS 19 bin. In den Systemeinstellungen ist alles erlaubt.",technical,medium,neutral,
 21,"Guten Tag, ich möchte mein Konto und alle damit verbundenen Daten gemäß Art. 17 DSGVO vollständig löschen lassen. Bitte bestätigen Sie mir die Löschung schriftlich innerhalb der gesetzlichen Frist.",account,high,neutral,
 22,kann man den timer auch auf 90 min stellen? 25 min pomodoro ist mir zu kurz,feature-request,low,neutral,
@@ -59,7 +59,7 @@ id,text,category,urgency,sentiment,notes
 58,"Nach dem Google Sign-In lande ich in einem leeren Konto, meine alten Habits sind nicht da. Bin ich versehentlich in einem neuen Account?",account,high,negative,"multi, account und technical"
 59,bitte mehr farben für die habits,feature-request,low,neutral,
 60,"Ich kann mich seit gestern nicht mehr einloggen, es kommt immer Fehler 500. Ich muss aber heute unbedingt meine Abgabe tracken.",account,high,negative,"multi, account und technical"
-61,"Sehr geehrte Damen und Herren, seit dem Wechsel auf das Jahresabo (59$) erhalte ich weiterhin die Aufforderung, auf Pro upzugraden. Zudem wurde mir der Restbetrag des Monatsabos nicht gutgeschrieben. Ich bitte um Klärung beider Punkte.",billing,high,negative,multi account und technical
+61,"Sehr geehrte Damen und Herren, seit dem Wechsel auf das Jahresabo (59$) erhalte ich weiterhin die Aufforderung, auf Pro upzugraden. Zudem wurde mir der Restbetrag des Monatsabos nicht gutgeschrieben. Ich bitte um Klärung beider Punkte.",billing,high,negative,"multi, billing und technical"
 62,gibt es die app auch auf spanisch?,feature-request,low,neutral,
 63,"Der Fokus-Timer sollte Spotify pausieren können, wenn die Pause startet.",feature-request,low,neutral,
 64,hab ausversehen mein konto gelöscht. kann man das rückgängig machen? war 2 jahre drin,account,high,negative,
