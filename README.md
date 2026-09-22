@@ -74,6 +74,12 @@ n=73, seriell gemessen (`--workers 1`), Modell `claude-haiku-4-5`, ein Lauf je V
 
 **Eine Sentiment-Klasse ist zu dünn.** `positive` kommt im Goldset nur zweimal vor. Die Sentiment-Accuracy sagt über diese Klasse praktisch nichts aus; `score.py` warnt inzwischen automatisch bei Klassen unter n=5.
 
+**20 konvergente Widersprüche auf 15 Tickets bleiben stehen.** Das sind die Fälle, in denen der Klassifikator (Haiku) und der Goldset-Auditor (Sonnet) unabhängig voneinander in dieselbe Richtung vom Goldset abweichen — verteilt auf 9 Urgency-, 8 Sentiment- und 3 Category-Urteile. Zwei unabhängige Modelle mit derselben Abweichung sind ein stärkeres Signal als ein einzelnes, und diese Liste wäre der nächste sinnvolle Ansatzpunkt gewesen: entweder als Labelkorrektur oder als weitere Regelpräzisierung.
+
+Sie wird bewusst nicht weiter verfolgt. Der Grund ist der Verlauf der drei Runden: v2 → v3 brachte klare, erklärbare Gewinne (Sentiment +17.8pp bei null Verschlechterungen, danach Urgency +11.0pp), die v4-Runde dagegen kostete mehr Schema und Geld, behob keinen einzigen echten Klassifikatorfehler und riss über den Kopplungseffekt an anderer Stelle 5,4 Punkte ein. Das ist der Punkt, an dem der Grenzertrag kippt — jede weitere Präzisierung verlängert das Schema, erhöht die Kosten und verschiebt mit einiger Wahrscheinlichkeit Fehler, statt sie zu beseitigen. Bei n=73 und einem Lauf je Version ließe sich ein Gewinn von ein bis zwei Tickets ohnehin nicht mehr von Streuung unterscheiden.
+
+Die Liste ist damit nicht abgearbeitet, sondern dokumentiert: `evals/goldset_audit_v3.md` enthält alle 44 Kandidaten mit Begründung. Das Audit ist als Werkzeug gedacht, das man bei Bedarf erneut laufen lässt — nicht als Aufgabenliste, die abgehakt werden muss.
+
 ## Kosten & Latenz
 
 - **Kosten pro 1000 Requests: $2.23** (Ø 1886 Input- / 68 Output-Tokens, Haiku 4.5 zu $1/$5 pro Mio Tokens)
