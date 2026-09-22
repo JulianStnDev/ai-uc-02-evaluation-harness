@@ -1,8 +1,16 @@
-"""Klassifikator aus ai-uc-01-ticket-classification.
+"""Klassifikator, urspruenglich aus ai-uc-01-ticket-classification — hier v2.
 
-Unveraendert uebernommen (Tool-Schema, Enum-Beschreibungen, Prompt, Modell) —
-UC2 soll genau das messen, was UC1 gebaut hat. Aenderungen hier muessen zurueck
-nach UC1 gespiegelt werden, sonst misst der Harness einen Stand, den es nicht gibt.
+v1 war byte-identisch mit UC1 und diente als Baseline (n=73: 82.2% Category-
+Accuracy, Urgency 71.2%, Sentiment 68.5%, siehe evals/results_baseline.md).
+
+v2 aendert drei Enum-Beschreibungen, sonst nichts (Modell, Prompt, Tool-Aufruf
+unveraendert):
+  - category/other:   positive Definition statt Restkategorie (Recall war 0.43)
+  - urgency/(1):      Frist zur Problemloesung statt beliebigem Zeitbezug
+  - sentiment/negative: risikobasiert statt tonfallbasiert
+
+UC1 bleibt auf dem alten Stand — Begruendung in docs/decisions.md (2026-09-22,
+"classify.py entkoppelt sich von UC1").
 
 Der __main__-Block aus UC1 (Demo-Lauf ueber sample_tickets.jsonl, Kosten/Latenz
 ueber n=6) ist bewusst nicht mitkopiert: Kosten und Latenz rechnet score.py ueber
@@ -24,17 +32,17 @@ CLASSIFY_TOOL = {
             "category": {
                 "type": "string",
                 "enum": ["billing", "technical", "account", "feature-request", "other"],
-                "description": "billing = Rechnungen/Zahlungen. technical = Bugs, Abstürze, Fehlverhalten der App (nicht login-bezogen). account = Login, Passwort, Zugangsdaten, Konto-Einstellungen. feature-request = Wünsche für neue Funktionen. other = alles andere."
+                "description": "billing = Rechnungen/Zahlungen. technical = Bugs, Abstürze, Fehlverhalten der App (nicht login-bezogen). account = Login, Passwort, Zugangsdaten, Konto-Einstellungen. feature-request = Wünsche für neue Funktionen. other = Anliegen, die kein Produktproblem und keinen Funktionswunsch enthalten: Presse-, Medien- und Kooperationsanfragen, Bewerbungen, reine Meinungsäußerungen ohne konkrete Handlungsaufforderung (Lob, Kritik am Preis oder am Produkt allgemein), Test- und Leernachrichten ohne erkennbares Anliegen. other ist eine eigenständige Kategorie mit eigenen Merkmalen, kein Auffangbecken — wähle sie aktiv, wenn diese Merkmale zutreffen, auch wenn eine andere Kategorie thematisch streifbar wäre."
             },
             "urgency": {
                 "type": "string",
                 "enum": ["low", "medium", "high"],
-                "description": "high = NUR wenn mindestens eines zutrifft: (1) eine explizite Zeitangabe oder Frist wird genannt, oder (2) eine Kernfunktion ist komplett unbenutzbar ohne Workaround. medium = ein reales Problem, aber ohne genannte Frist und ohne kompletten Funktionsausfall. low = Frage, Wunsch oder kein akutes Problem. Der emotionale Tonfall hat KEINEN Einfluss auf diese Einstufung."
+                "description": "high = NUR wenn mindestens eines zutrifft: (1) es wird eine Frist genannt, bis zu der das Problem gelöst sein muss, oder (2) eine Kernfunktion ist komplett unbenutzbar ohne Workaround. Ein bloßer Zeitbezug im Text ist KEINE Frist — wie lange ein Problem schon besteht, wie oft der Nutzer schon geschrieben hat, oder ab wann er verreist/im Ausland ist, erfüllt Bedingung (1) nicht. medium = ein reales Problem, aber ohne genannte Frist und ohne kompletten Funktionsausfall. low = Frage, Wunsch oder kein akutes Problem. Der emotionale Tonfall hat KEINEN Einfluss auf diese Einstufung."
             },
             "sentiment": {
                 "type": "string",
                 "enum": ["positive", "neutral", "negative"],
-                "description": "positive = Lob/Dank. neutral = sachlicher Bericht ohne emotionale Sprache. negative = explizite Frustration/Ärger in der Formulierung."
+                "description": "positive = Lob/Dank. neutral = sachlicher Bericht ohne emotionale Sprache. negative = der Nutzer ist erkennbar beeinträchtigt oder geschädigt — der Tonfall ist dafür NICHT ausschlaggebend, eine ruhig formulierte Schadensmeldung zählt genauso wie eine wütende. Dazu zählen: Geldverlust oder falsche Abbuchung, Datenverlust, Sicherheitsvorfall, blockierte oder defekte Nutzung, sowie Hinweise auf wiederholten oder unbeantworteten Kontakt (z.B. 'schon mehrfach geschrieben', 'immer noch keine Antwort', 'seit Tagen keine Reaktion'). Trifft das zu, geht negative der Einstufung neutral vor."
             }
         },
         "required": ["category", "urgency", "sentiment"]

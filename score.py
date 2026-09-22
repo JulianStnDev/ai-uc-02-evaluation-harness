@@ -2,24 +2,34 @@
 
 Zwei getrennte Phasen, damit die Auswertung nichts kostet:
 
-  1. Lauf    -> ruft classify() fuer jedes Ticket, schreibt evals/predictions.csv
-  2. Scoring -> rechnet alle Metriken aus evals/predictions.csv
+  1. Lauf    -> ruft classify() fuer jedes Ticket, schreibt predictions_<tag>.csv
+  2. Scoring -> rechnet alle Metriken aus predictions_<tag>.csv
 
 Mit --from-cache wird Phase 1 uebersprungen. Die Auswertung laesst sich damit
 beliebig oft umbauen, ohne erneut die API zu bezahlen.
 
-    python score.py                  # Lauf + Scoring
-    python score.py --workers 1      # seriell (ehrliche Latenzmessung)
-    python score.py --from-cache     # nur neu rechnen, keine Requests
-    python score.py --from-cache --out evals/results.md
+Jeder Lauf traegt ein --tag; die Artefakte heissen evals/predictions_<tag>.csv
+und evals/run_meta_<tag>.json. So ueberschreibt ein neuer Lauf keine aeltere
+Messung — noetig, sobald mehrere Prompt-Staende verglichen werden.
+
+    python score.py --tag v2 --workers 1          # Lauf + Scoring
+    python score.py --tag baseline --from-cache   # nur neu rechnen, keine Requests
+    python score.py --tag v2 --from-cache --out evals/results_v2.md
 """
 import argparse, csv, json, os, statistics, sys, time
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
 GOLDSET = "evals/goldset.csv"
-PREDICTIONS = "evals/predictions.csv"
-RUN_META = "evals/run_meta.json"
+
+
+def pred_path(tag):
+    return f"evals/predictions_{tag}.csv"
+
+
+def meta_path(tag):
+    return f"evals/run_meta_{tag}.json"
+
 
 # Reihenfolge wie im Enum in classify.py — bestimmt die Achsen der Konfusionsmatrix.
 CATEGORIES = ["billing", "technical", "account", "feature-request", "other"]
@@ -47,7 +57,7 @@ def load_goldset(path=GOLDSET):
     return labeled
 
 
-def run(tickets, workers):
+def run(tickets, workers, tag):
     """Klassifiziert alle Tickets und schreibt predictions.csv. Gibt die Rows zurueck."""
     from classify import classify  # erst hier, damit --from-cache ohne API-Key laeuft
 
@@ -71,19 +81,19 @@ def run(tickets, workers):
 
     fields = ["id", "category", "urgency", "sentiment", "latency_s",
               "input_tokens", "output_tokens", "error"]
-    with open(PREDICTIONS, "w", encoding="utf-8", newline="") as f:
+    with open(pred_path(tag), "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(rows)
 
-    meta = {"timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+    meta = {"timestamp": time.strftime("%Y-%m-%d %H:%M:%S"), "tag": tag,
             "model": _model_from_classify(), "workers": workers,
             "n": len(rows), "wall_clock_s": round(wall, 1),
             "errors": sum(1 for r in rows if r["error"])}
-    with open(RUN_META, "w", encoding="utf-8") as f:
+    with open(meta_path(tag), "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=2)
 
-    print(f"Fertig in {wall:.1f}s -> {PREDICTIONS}")
+    print(f"Fertig in {wall:.1f}s -> {pred_path(tag)}")
     return rows
 
 
@@ -95,7 +105,7 @@ def _model_from_classify():
     return m.group(1) if m else "unbekannt"
 
 
-def load_predictions(path=PREDICTIONS):
+def load_predictions(path):
     if not os.path.exists(path):
         sys.exit(f"{path} existiert nicht — einmal ohne --from-cache laufen lassen.")
     with open(path, encoding="utf-8") as f:
@@ -164,6 +174,7 @@ def build_report(gold_rows, pred_rows, meta):
     add(f"# Evaluationsergebnisse\n")
     add(f"- Goldset: {len(gold_rows)} gelabelte Tickets")
     add(f"- Ausgewertet: {n}" + (f" ({len(failed)} Fehler, siehe unten)" if failed else ""))
+    add(f"- Lauf-Tag: `{meta.get('tag', '?')}`")
     add(f"- Modell: `{meta.get('model', '?')}`")
     add(f"- Lauf: {meta.get('timestamp', '?')}, {meta.get('workers', '?')} Worker\n")
 
@@ -287,6 +298,8 @@ def build_report(gold_rows, pred_rows, meta):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--tag", default="latest",
+                    help="Name des Laufs; bestimmt die Dateinamen der Artefakte")
     ap.add_argument("--from-cache", action="store_true",
                     help="nur auswerten, keine API-Requests")
     ap.add_argument("--workers", type=int, default=8,
@@ -301,11 +314,12 @@ def main():
         gold_rows = gold_rows[:args.limit]
 
     if args.from_cache:
-        pred_rows = load_predictions()
-        meta = json.load(open(RUN_META, encoding="utf-8")) if os.path.exists(RUN_META) else {}
+        pred_rows = load_predictions(pred_path(args.tag))
+        mp = meta_path(args.tag)
+        meta = json.load(open(mp, encoding="utf-8")) if os.path.exists(mp) else {}
     else:
-        pred_rows = run(gold_rows, args.workers)
-        meta = json.load(open(RUN_META, encoding="utf-8"))
+        pred_rows = run(gold_rows, args.workers, args.tag)
+        meta = json.load(open(meta_path(args.tag), encoding="utf-8"))
 
     report, headline = build_report(gold_rows, pred_rows, meta)
     print("\n" + report)

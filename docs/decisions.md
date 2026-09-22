@@ -45,3 +45,14 @@ Ergänzend geprüft: #67 (Zweitthema "ignorierte Kündigungs-Einstellung") bleib
 account – Einstellung wurde vom System nicht korrekt verarbeitet, kein Datenproblem im Konto selbst.
 Begründung: Bestätigt nochmal den Grundsatz, dass Datenfehler im Goldset dem Klassifikator sonst
 fälschlich angelastet würden.
+
+## 2026-09-22: classify.py entkoppelt sich von UC1 (v2)
+Kontext: Baseline-Lauf (n=73, $0.10, 82.2% Category-Accuracy) deckte drei Kalibrierungslücken auf,
+die mit n=6 in UC1 nicht sichtbar waren: other-Recall 0.43 (Kategorie ohne positive Definition),
+Urgency-Überschätzung durch zu breite Zeitbezug-Regel (#49), Sentiment-Definition im Code veraltet
+gegenüber der später präzisierten Risiko-Definition.
+Entscheidung: classify.py wird für UC2 gezielt an drei Stellen angepasst (category/other,
+urgency/Bedingung 1, sentiment/negative). UC1s Repo und README bleiben unverändert als historischer
+Stand (n=6, erster Wurf). UC2 führt die Kalibrierung mit n=73 fort.
+Begründung: "Byte-identisch" war nötig, um die Baseline fair zu messen — nicht, um den Prompt für
+immer einzufrieren. Der Vergleich Baseline vs. korrigierter Lauf ist der eigentliche UC2-Nachweis.
