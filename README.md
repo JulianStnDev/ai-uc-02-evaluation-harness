@@ -103,6 +103,8 @@ Ob dieser Tausch sich lohnt, hängt am Anwendungsfall: Bei 100.000 Tickets im Mo
 
 **Das Modell befolgt die Regel, die dasteht — nicht die, die gemeint war.** Ein Ticket mit *„Bin die nächsten 3 Monate im Ausland"* wurde als dringend eingestuft, weil die Regel „explizite Zeitangabe oder Frist" lautete. Das war formal korrekt und fachlich falsch. Solche Fälle findet man nicht durch Nachdenken über den Prompt, sondern nur, indem man die Fehler einzeln anschaut.
 
+**Ein Prüfwerkzeug findet Probleme, die keine sind — wenn man die Gegenprobe vergisst.** Der LLM-Judge meldete zwei Lücken in den Dringlichkeitsregeln: Für einen gemeldeten Fremdzugriff aufs Konto und für eine DSGVO-Anfrage mit gesetzlicher Frist gab es keine passende `high`-Bedingung. Beides stimmte. Daraufhin entstand eine v4, die beide Lücken schloss — mit dem Ergebnis, dass die Category-Accuracy um 5,4 Prozentpunkte fiel, die Urgency-Accuracy sich nicht bewegte und die Kosten um 9% stiegen. Der Grund: Die betroffenen Tickets waren in v3 **bereits korrekt** klassifiziert. Der Judge prüft Label gegen Regeln, nicht Klassifikator gegen Goldset — eine Regellücke, die er findet, ist deshalb nicht automatisch eine Fehlerquelle. Ein Blick in `predictions_v3.csv` hätte das in Sekunden gezeigt. v4 wurde zurückgenommen; der Lauf liegt als `evals/*_v4_reverted.*` bei, und seitdem gilt die Regel: Ein Judge-Fund wird nur dann zur Prompt-Änderung, wenn der Klassifikator auf demselben Ticket ebenfalls falsch liegt. Der Regressionstest hat die Verschlechterung übrigens korrekt gemeldet — das war sein erster echter Einsatz.
+
 **Fehler im Goldset werden dem Klassifikator angelastet.** Beim Aufsetzen des Harness fielen zwei Label-Fehler auf, die eine manuelle Durchsicht übersehen hatte. Hätte man sie stehen lassen, wären sie als Modellfehler in die Matrix eingegangen — mit der falschen Schlussfolgerung, am Prompt arbeiten zu müssen.
 
 **Dokumentation driftet schneller, als man denkt.** Zweimal in diesem Projekt beschrieb ein Docstring einen Zustand, den der Code nicht mehr hatte: einmal die Behauptung „byte-identisch mit UC1", nachdem der Prompt bereits geändert war, einmal ein fester Dateipfad, nachdem die Artefakte auf Tags umgestellt worden waren. Beides fiel nur auf, weil jemand gezielt hinsah. In einem Repo, dessen Zweck gerade die Nachvollziehbarkeit von Ständen ist, ist das die gefährlichste Fehlerklasse.
@@ -151,8 +153,8 @@ Die Schwellen liegen bewusst unter dem v3-Stand. Sie sollen echte Verschlechteru
 Ein zweites Modell (Sonnet, bewusst nicht der Haiku-Klassifikator — ein Modell, das sein eigenes Urteil bewertet, neigt zur Selbstbestätigung) prüft jedes Label gegen die Regeln aus `classify.py` und markiert Widersprüche.
 
 ```bash
-python evals/audit_goldset.py               # Lauf, ~$0.68
-python evals/audit_goldset.py --from-cache  # nur Report neu rendern
+python evals/audit_goldset.py --tag v3               # Lauf, ~$0.68
+python evals/audit_goldset.py --tag v3 --from-cache  # nur Report neu rendern
 ```
 
 Der Judge ändert **nie** ein Label. Er erzeugt eine Kandidatenliste für die manuelle Nachprüfung; die Entscheidung trifft ein Mensch. Die Regeln liest er direkt aus `CLASSIFY_TOOL` — ändert sich dort eine Enum-Beschreibung, auditiert der nächste Lauf automatisch gegen die neue Fassung.
@@ -162,5 +164,6 @@ Der Judge ändert **nie** ein Label. Er erzeugt eine Kandidatenliste für die ma
 | `evals/goldset.csv` | 73 Tickets, handgelabelt |
 | `evals/predictions_<tag>.csv` | Rohergebnisse je Lauf (inkl. Latenz und Tokens) |
 | `evals/results_<tag>.md` | Auswertung je Lauf |
-| `evals/goldset_audit.md` | Widersprüche aus dem LLM-Audit |
+| `evals/goldset_audit_<tag>.md` | Widersprüche aus dem LLM-Audit |
+| `evals/*_v4_reverted.*` | zurückgenommenes Experiment, siehe `docs/decisions.md` |
 | `docs/decisions.md` | datierte Entscheidungen, inkl. der Entkopplung von UC1 |

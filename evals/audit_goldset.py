@@ -13,8 +13,8 @@ Aufbau:
   - Der Judge aendert NIE ein Label. Er markiert Kandidaten fuer die manuelle
     Nachpruefung. Jede Entscheidung darueber trifft ein Mensch.
 
-    python evals/audit_goldset.py              # Lauf + Report (kostet API-Calls)
-    python evals/audit_goldset.py --from-cache # nur Report neu rendern
+    python evals/audit_goldset.py --tag v4              # Lauf + Report (kostet API-Calls)
+    python evals/audit_goldset.py --tag v4 --from-cache # nur Report neu rendern
 """
 import argparse, json, os, sys, time
 from concurrent.futures import ThreadPoolExecutor
@@ -35,8 +35,15 @@ client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 # Anderes Modell als der Klassifikator (Haiku) — siehe Modul-Docstring.
 JUDGE_MODEL = "claude-sonnet-5"
 GOLDSET = "evals/goldset.csv"
-RAW = "evals/goldset_audit_raw.json"
-REPORT = "evals/goldset_audit.md"
+
+
+def raw_path(tag):
+    return f"evals/goldset_audit_raw_{tag}.json"
+
+
+def report_path(tag):
+    return f"evals/goldset_audit_{tag}.md"
+
 
 FIELDS = ["category", "urgency", "sentiment"]
 
@@ -121,7 +128,7 @@ def audit_one(row):
             "output_tokens": response.usage.output_tokens}
 
 
-def run(rows, workers):
+def run(rows, workers, tag):
     def one(r):
         try:
             return audit_one(r)
@@ -134,9 +141,9 @@ def run(rows, workers):
         results = list(pool.map(one, rows))
     payload = {"model": JUDGE_MODEL, "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
                "n": len(results), "results": results}
-    with open(RAW, "w", encoding="utf-8") as f:
+    with open(raw_path(tag), "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
-    print(f"Fertig in {time.time() - started:.1f}s -> {RAW}")
+    print(f"Fertig in {time.time() - started:.1f}s -> {raw_path(tag)}")
     return payload
 
 
@@ -203,6 +210,7 @@ def build_report(gold, payload):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--tag", default="latest", help="Name des Audit-Laufs; bestimmt die Dateinamen")
     ap.add_argument("--from-cache", action="store_true", help="nur Report neu rendern")
     ap.add_argument("--workers", type=int, default=6)
     args = ap.parse_args()
@@ -211,16 +219,16 @@ def main():
         gold = [r for r in csv.DictReader(f) if r["category"]]
 
     if args.from_cache:
-        if not os.path.exists(RAW):
-            sys.exit(f"{RAW} existiert nicht — einmal ohne --from-cache laufen lassen.")
-        payload = json.load(open(RAW, encoding="utf-8"))
+        if not os.path.exists(raw_path(args.tag)):
+            sys.exit(f"{raw_path(args.tag)} existiert nicht — einmal ohne --from-cache laufen lassen.")
+        payload = json.load(open(raw_path(args.tag), encoding="utf-8"))
     else:
-        payload = run(gold, args.workers)
+        payload = run(gold, args.workers, args.tag)
 
     report, flagged = build_report(gold, payload)
-    with open(REPORT, "w", encoding="utf-8") as f:
+    with open(report_path(args.tag), "w", encoding="utf-8") as f:
         f.write(report)
-    print(f"\n{REPORT} geschrieben — {len(flagged)} Widerspruch/Widersprueche.")
+    print(f"\n{report_path(args.tag)} geschrieben — {len(flagged)} Widerspruch/Widersprueche.")
 
 
 if __name__ == "__main__":

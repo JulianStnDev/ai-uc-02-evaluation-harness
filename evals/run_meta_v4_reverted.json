@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-09-22 19:51:57",
+  "tag": "v4_reverted",
+  "model": "claude-haiku-4-5-20251001",
+  "workers": 1,
+  "n": 73,
+  "wall_clock_s": 69.8,
+  "errors": 0,
+  "note": "Zurueckgenommenes Experiment, siehe docs/decisions.md"
+}
