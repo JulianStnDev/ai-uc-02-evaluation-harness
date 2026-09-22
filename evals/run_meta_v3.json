@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-09-22 16:35:28",
+  "tag": "v3",
+  "model": "claude-haiku-4-5-20251001",
+  "workers": 1,
+  "n": 73,
+  "wall_clock_s": 76.3,
+  "errors": 0
+}

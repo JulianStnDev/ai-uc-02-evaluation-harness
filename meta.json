@@ -1,6 +1,6 @@
 {
-  "title": "",
-  "status": "planned",
-  "tags": [],
-  "summary": ""
+  "title": "Evaluation Harness (Goldset & Prompt-Iteration)",
+  "status": "active",
+  "tags": ["evaluation", "goldset", "classification", "prompt-iteration"],
+  "summary": "Prompt-Stände gegen ein handgelabeltes Goldset messen: Konfusionsmatrix, Fehlerrichtung, Kosten"
 }
