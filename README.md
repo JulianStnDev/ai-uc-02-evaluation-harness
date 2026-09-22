@@ -129,9 +129,38 @@ python score.py --tag v3 --workers 1 --out evals/results_v3.md  # Lauf + Report
 python score.py --tag v3 --from-cache                           # nur neu rechnen, kostenlos
 ```
 
+### Regressionstest
+
+Prüft die Metriken eines Laufs gegen feste Schwellen und endet mit Exit-Code 1, wenn eine unterschritten wird — damit lässt er sich in einen Pre-Commit-Hook oder eine CI-Stufe hängen.
+
+```bash
+python evals/test_regression.py --tag v3          # gegen bestehenden Lauf, kostenlos
+python evals/test_regression.py --tag v4 --run    # frisch klassifizieren, dann prüfen
+```
+
+| Metrik | Schwelle | v3 |
+|---|---:|---:|
+| Category-Accuracy | ≥ 85% | 89.0% |
+| Urgency-Accuracy | ≥ 75% | 79.5% |
+| Sentiment-Accuracy | ≥ 80% | 84.9% |
+
+Die Schwellen liegen bewusst unter dem v3-Stand. Sie sollen echte Verschlechterungen fangen, nicht die Streuung zwischen zwei Läufen desselben Prompts — solange nicht mehrfach pro Version gemessen wird (siehe *Was ich anders machen würde*), ist der Abstand nach unten die Absicherung gegen Fehlalarme. Zur Kontrolle: Gegen den Baseline-Lauf schlägt der Test in allen drei Metriken fehl.
+
+### Goldset-Audit (LLM-as-Judge)
+
+Ein zweites Modell (Sonnet, bewusst nicht der Haiku-Klassifikator — ein Modell, das sein eigenes Urteil bewertet, neigt zur Selbstbestätigung) prüft jedes Label gegen die Regeln aus `classify.py` und markiert Widersprüche.
+
+```bash
+python evals/audit_goldset.py               # Lauf, ~$0.68
+python evals/audit_goldset.py --from-cache  # nur Report neu rendern
+```
+
+Der Judge ändert **nie** ein Label. Er erzeugt eine Kandidatenliste für die manuelle Nachprüfung; die Entscheidung trifft ein Mensch. Die Regeln liest er direkt aus `CLASSIFY_TOOL` — ändert sich dort eine Enum-Beschreibung, auditiert der nächste Lauf automatisch gegen die neue Fassung.
+
 | Datei | Inhalt |
 |---|---|
 | `evals/goldset.csv` | 73 Tickets, handgelabelt |
 | `evals/predictions_<tag>.csv` | Rohergebnisse je Lauf (inkl. Latenz und Tokens) |
 | `evals/results_<tag>.md` | Auswertung je Lauf |
+| `evals/goldset_audit.md` | Widersprüche aus dem LLM-Audit |
 | `docs/decisions.md` | datierte Entscheidungen, inkl. der Entkopplung von UC1 |

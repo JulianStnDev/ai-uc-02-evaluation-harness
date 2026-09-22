@@ -1,0 +1,1175 @@
+{
+  "model": "claude-sonnet-5",
+  "timestamp": "2026-09-22 19:36:28",
+  "n": 73,
+  "results": [
+    {
+      "id": "1",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3191,
+      "output_tokens": 249
+    },
+    {
+      "id": "2",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3103,
+      "output_tokens": 247
+    },
+    {
+      "id": "3",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3111,
+      "output_tokens": 246
+    },
+    {
+      "id": "4",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Das Ticket beschreibt ein störendes Verhalten ('sehr nervig'), aber es liegt keine Beeinträchtigung im Sinne der Regeln vor (kein Geldverlust, Datenverlust, Sicherheitsvorfall, komplette Blockade oder wiederholter/unbeantworteter Kontakt), daher ist neutral treffender als negative."
+      },
+      "input_tokens": 3117,
+      "output_tokens": 380
+    },
+    {
+      "id": "5",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3159,
+      "output_tokens": 250
+    },
+    {
+      "id": "6",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3105,
+      "output_tokens": 247
+    },
+    {
+      "id": "7",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Text ist ein sachlicher Fehlerbericht ohne emotionale Sprache, Geldverlust, Datenverlust, Sicherheitsvorfall oder Hinweis auf wiederholten/unbeantworteten Kontakt, daher entspricht er neutral statt negative."
+      },
+      "input_tokens": 3130,
+      "output_tokens": 349
+    },
+    {
+      "id": "8",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "technical",
+        "category_reason": "Der Nutzer fragt nach einer bestehenden Funktion (Archivieren), die er nicht finden kann - das ist eine Bedienungs-/Auffindbarkeitsfrage zur App, kein Wunsch nach einer neuen Funktion, daher eher technical/Nutzungsproblem statt feature-request.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3102,
+      "output_tokens": 360
+    },
+    {
+      "id": "9",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "positive",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3115,
+      "output_tokens": 246
+    },
+    {
+      "id": "10",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Nutzer stellt lediglich eine sachliche Frage zum Status seines Abos, ohne Hinweis auf finanziellen Schaden, Datenverlust oder wiederholten unbeantworteten Kontakt."
+      },
+      "input_tokens": 3126,
+      "output_tokens": 328
+    },
+    {
+      "id": "11",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "high",
+        "urgency_reason": "Die Sync-Funktion, eine zentrale Funktion, ist laut Regel bei komplettem Ausfall ohne Workaround als high einzustufen, und hier fehlen Habits durch fehlgeschlagene Synchronisation komplett auf einem Gerät.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3108,
+      "output_tokens": 341
+    },
+    {
+      "id": "12",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3095,
+      "output_tokens": 250
+    },
+    {
+      "id": "13",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "low",
+        "urgency_reason": "Es handelt sich um eine reine Anfrage nach Rechnungsdokumenten ohne genannte Frist, ohne Funktionsausfall und ohne eingetretenen finanziellen Schaden, also erfüllt es keine der high- oder medium-Bedingungen.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3134,
+      "output_tokens": 343
+    },
+    {
+      "id": "14",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Es handelt sich um einen möglichen Sicherheitsvorfall, aber es wird weder eine Frist genannt, noch ist der Zugang zum eigenen Konto verloren (der Nutzer kann sich noch einloggen), noch ist ein bezifferter finanzieller Schaden eingetreten.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3132,
+      "output_tokens": 354
+    },
+    {
+      "id": "15",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Es handelt sich um eine kritische Meinungsäußerung zum Preisniveau/Funktionsumfang ohne Geldverlust, Datenverlust, blockierte Nutzung oder unbeantworteten Kontakt, daher ist negative hier nicht durch die Regeln gedeckt."
+      },
+      "input_tokens": 3098,
+      "output_tokens": 351
+    },
+    {
+      "id": "16",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Nutzer beschreibt sachlich einen Bug (verlorener Streak) und stellt eine Vermutung zur Ursache an, ohne Hinweise auf starke Beeinträchtigung, Geldverlust, Datenverlust oder wiederholten unbeantworteten Kontakt, daher ist neutral treffender als negative."
+      },
+      "input_tokens": 3123,
+      "output_tokens": 367
+    },
+    {
+      "id": "17",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3109,
+      "output_tokens": 250
+    },
+    {
+      "id": "18",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3113,
+      "output_tokens": 250
+    },
+    {
+      "id": "19",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3075,
+      "output_tokens": 247
+    },
+    {
+      "id": "20",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3129,
+      "output_tokens": 249
+    },
+    {
+      "id": "21",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Die \"gesetzliche Frist\" ist keine vom Nutzer konkret genannte Frist im Sinne der Regel, und es liegt weder ein kompletter Funktionsausfall noch ein bezifferter finanzieller Schaden vor.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3166,
+      "output_tokens": 333
+    },
+    {
+      "id": "22",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3108,
+      "output_tokens": 250
+    },
+    {
+      "id": "23",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Es wurde kein konkreter, bezifferter falscher Betrag genannt und keine Frist gesetzt, daher erfüllt der Fall nicht Bedingung (3) für high.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3130,
+      "output_tokens": 312
+    },
+    {
+      "id": "24",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3073,
+      "output_tokens": 246
+    },
+    {
+      "id": "25",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3149,
+      "output_tokens": 247
+    },
+    {
+      "id": "26",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "other",
+        "category_reason": "Es handelt sich um eine allgemeine Frage zu Rabatten/Preisniveau ohne konkreten eigenen Abrechnungsvorgang, was laut Regel unter other statt billing fällt.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3122,
+      "output_tokens": 319
+    },
+    {
+      "id": "27",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3123,
+      "output_tokens": 247
+    },
+    {
+      "id": "28",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Es handelt sich um einen sachlichen Bericht eines Lesbarkeitsproblems ohne erkennbare Beeinträchtigung wie Geldverlust, Datenverlust, Sicherheitsvorfall oder blockierte Nutzung, daher ist neutral statt negative angemessen."
+      },
+      "input_tokens": 3137,
+      "output_tokens": 353
+    },
+    {
+      "id": "29",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3118,
+      "output_tokens": 250
+    },
+    {
+      "id": "30",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3109,
+      "output_tokens": 248
+    },
+    {
+      "id": "31",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "technical",
+        "category_reason": "Die Frage betrifft das Verhalten einer Kernfunktion (Fokus-Timer) der App, was unter technical fällt, nicht unter other, da es sich nicht um Presse-, Meinungs- oder Testanliegen handelt.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3098,
+      "output_tokens": 332
+    },
+    {
+      "id": "32",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3116,
+      "output_tokens": 247
+    },
+    {
+      "id": "33",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3109,
+      "output_tokens": 250
+    },
+    {
+      "id": "34",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3114,
+      "output_tokens": 249
+    },
+    {
+      "id": "35",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3126,
+      "output_tokens": 247
+    },
+    {
+      "id": "36",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Das Ticket beschreibt einen sachlichen Bugbericht (doppelte Anzeige) ohne Hinweis auf Datenverlust, blockierte Nutzung, Geldschaden oder wiederholten unbeantworteten Kontakt, daher ist neutral statt negative angemessen."
+      },
+      "input_tokens": 3090,
+      "output_tokens": 353
+    },
+    {
+      "id": "37",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3167,
+      "output_tokens": 247
+    },
+    {
+      "id": "38",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3098,
+      "output_tokens": 250
+    },
+    {
+      "id": "39",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "low",
+        "urgency_reason": "Es handelt sich um eine Frage zur Stornierungsmöglichkeit ohne genannte Frist, kompletten Funktionsausfall oder bereits eingetretenen bezifferten finanziellen Schaden, daher low statt medium.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3130,
+      "output_tokens": 332
+    },
+    {
+      "id": "40",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Es wird kein dauerhafter Verlust des Kontozugangs beschrieben, sondern drei fehlgeschlagene Versuche mit einem neu gesetzten Passwort, ohne dass eine Frist oder ein vollständiger, dauerhafter Ausfall genannt wird.",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": "Der Nutzer ist durch die blockierte Nutzung (Login funktioniert trotz mehrfacher Versuche nicht) erkennbar beeinträchtigt, was laut Regel als negative einzustufen ist, unabhängig vom ruhigen Tonfall."
+      },
+      "input_tokens": 3118,
+      "output_tokens": 443
+    },
+    {
+      "id": "41",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "billing",
+        "category_reason": "Die Frage betrifft die Nutzung des Pro-Abos (Vertragsdetails) und nicht Login, Passwort oder Konto-Einstellungen, daher gehört sie zu billing statt account.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3105,
+      "output_tokens": 320
+    },
+    {
+      "id": "42",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Nutzer beschreibt selbst eine Kleinigkeit, die zwar stört, aber keine Beeinträchtigung, Schädigung oder blockierte Nutzung darstellt, daher ist neutral treffender als negative."
+      },
+      "input_tokens": 3128,
+      "output_tokens": 331
+    },
+    {
+      "id": "43",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "positive",
+        "sentiment_reason": "Das Ticket enthält deutliches Lob ('SUPER APP!!!'), was laut Regel als positive einzustufen ist, nicht neutral."
+      },
+      "input_tokens": 3097,
+      "output_tokens": 299
+    },
+    {
+      "id": "44",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "technical",
+        "category_reason": "Fehlende Accessibility-Labels sind ein Fehlverhalten der App (VoiceOver funktioniert nicht wie erwartet), kein Wunsch nach einer neuen Funktion.",
+        "urgency_agrees": false,
+        "urgency_suggested": "high",
+        "urgency_reason": "Für einen VoiceOver-Nutzer ist der Fokus-Timer durch die fehlenden Labels faktisch unbenutzbar, da er nicht erkennen kann, welchen Button er drückt - das entspricht dem kompletten Ausfall einer Kernfunktion ohne Workaround.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3129,
+      "output_tokens": 421
+    },
+    {
+      "id": "45",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3091,
+      "output_tokens": 250
+    },
+    {
+      "id": "46",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "feature-request",
+        "category_reason": "Die Anfrage nach Team- oder Firmenlizenzen ist eine konkrete Anfrage nach einer neuen Funktion/Angebotsform der App, keine reine Meinungsäußerung oder Presse-/Kooperationsanfrage ohne Produktbezug.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3127,
+      "output_tokens": 347
+    },
+    {
+      "id": "47",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Es liegt weder eine genannte Frist, noch ein kompletter Funktionsausfall (die App funktioniert, nur die Habit-Grenze ist zu niedrig) noch ein bereits eingetretener bezifferter finanzieller Schaden vor.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": "Der Nutzer ist durch das gekaufte, aber nicht funktionierende Feature beeinträchtigt, was laut Regel als negative gilt."
+      },
+      "input_tokens": 3121,
+      "output_tokens": 391
+    },
+    {
+      "id": "48",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "account",
+        "category_reason": "Die Frage nach dem Zugriff auf Kontakte betrifft App-Berechtigungen/Datenschutz im Zusammenhang mit dem eigenen Konto, was eher als account-Einstellung bzw. Zugriffsrechte einzuordnen ist als 'other', da kein Presse-, Kooperations- oder reines Meinungsanliegen ohne Handlungsaufforderung vorliegt, sondern eine konkrete Frage zum Produktverhalten.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Die Nachricht ist eine kritische, aber sachliche Nachfrage ohne erkennbaren Geldverlust, Datenverlust, Sicherheitsvorfall oder blockierte Nutzung, daher erfüllt sie nicht die engen Kriterien für negative."
+      },
+      "input_tokens": 3090,
+      "output_tokens": 510
+    },
+    {
+      "id": "49",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "billing",
+        "category_reason": "Die Anfrage betrifft das Pausieren des eigenen Abos, also einen konkreten Vertrags-/Abrechnungsvorgang, was laut Abgrenzungsregel billing statt feature-request ist.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3121,
+      "output_tokens": 324
+    },
+    {
+      "id": "50",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "low",
+        "urgency_reason": "Es handelt sich um einen kleinen Übersetzungsfehler ohne Fristsetzung, ohne kompletten Funktionsausfall und ohne finanziellen Schaden, also low statt medium.",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Nutzer meldet sachlich einen Übersetzungsfehler ohne erkennbare Beeinträchtigung, Schaden oder emotionale Sprache, was neutral statt negative entspricht."
+      },
+      "input_tokens": 3128,
+      "output_tokens": 391
+    },
+    {
+      "id": "51",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3093,
+      "output_tokens": 247
+    },
+    {
+      "id": "52",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3124,
+      "output_tokens": 250
+    },
+    {
+      "id": "53",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Es wird keine Frist genannt, keine Kernfunktion ist komplett unbenutzbar und kein bezifferter finanzieller Schaden ist eingetreten (die Abbuchung erfolgte wie vorgesehen, nur die Aktivierung fehlt), daher erfüllt das Ticket keine der drei high-Bedingungen.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3160,
+      "output_tokens": 368
+    },
+    {
+      "id": "54",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3086,
+      "output_tokens": 250
+    },
+    {
+      "id": "55",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3129,
+      "output_tokens": 247
+    },
+    {
+      "id": "56",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3101,
+      "output_tokens": 249
+    },
+    {
+      "id": "57",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "low",
+        "urgency_reason": "Es handelt sich um ein reales, aber nicht schwerwiegendes Problem (fehlerhafte Werbeanzeige trotz Pro-Abo) ohne Frist, ohne kompletten Funktionsausfall einer Kernfunktion und ohne bezifferten finanziellen Schaden, daher eher low/medium statt medium mit dieser Begründung - die Formulierung als reine Frage spricht sogar eher für low.",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Text ist eine sachliche Frage ohne Hinweise auf Geldverlust, Datenverlust, Sicherheitsvorfall, blockierte Nutzung oder wiederholten unbeantworteten Kontakt, daher ist neutral statt negative angemessen."
+      },
+      "input_tokens": 3102,
+      "output_tokens": 495
+    },
+    {
+      "id": "58",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Der Login funktioniert, es fehlen nur die alten Habit-Daten nach Anmeldung in einem falschen/neuen Konto - kein kompletter Funktionsausfall ohne Workaround und keine genannte Frist oder bezifferter finanzieller Schaden.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": "Der Nutzer scheint durch den vermeintlichen Verlust seiner Habit-Daten beeinträchtigt, was als negativ gilt (blockierte/defekte Nutzung bzw. befürchteter Datenverlust)."
+      },
+      "input_tokens": 3127,
+      "output_tokens": 424
+    },
+    {
+      "id": "59",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3084,
+      "output_tokens": 250
+    },
+    {
+      "id": "60",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Text beschreibt sachlich ein Login-Problem ohne Hinweise auf Geldverlust, Datenverlust, Sicherheitsvorfall oder wiederholten/unbeantworteten Kontakt, daher ist neutral statt negative angemessen."
+      },
+      "input_tokens": 3129,
+      "output_tokens": 340
+    },
+    {
+      "id": "61",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Es ist kein bezifferter, bereits eingetretener Schaden genannt - der nicht gutgeschriebene Restbetrag wird nicht mit einem konkreten Betrag benannt, und es liegt auch keine Frist oder ein kompletter Funktionsausfall vor.",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": "Nicht gutgeschriebener Restbetrag stellt einen finanziellen Nachteil dar, was laut Regel negative Sentiment rechtfertigt."
+      },
+      "input_tokens": 3190,
+      "output_tokens": 403
+    },
+    {
+      "id": "62",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3087,
+      "output_tokens": 250
+    },
+    {
+      "id": "63",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3105,
+      "output_tokens": 250
+    },
+    {
+      "id": "64",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "medium",
+        "urgency_reason": "Es wird keine Frist genannt und kein bezifferter finanzieller Schaden erwähnt; ein gelöschtes Konto ist zwar ärgerlich, erfüllt aber nicht die engen high-Kriterien (kein Login-Ausfall im Sinne eines bestehenden, aber nicht funktionierenden Zugangs, sondern eine mögliche Wiederherstellungsanfrage).",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3106,
+      "output_tokens": 389
+    },
+    {
+      "id": "65",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3070,
+      "output_tokens": 247
+    },
+    {
+      "id": "66",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "feature-request",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "positive",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3144,
+      "output_tokens": 249
+    },
+    {
+      "id": "67",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "billing",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "negative",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3182,
+      "output_tokens": 247
+    },
+    {
+      "id": "68",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "account",
+        "category_reason": "Eine Frage zur Datenspeicherung im Rahmen der Datenschutzerklärung betrifft die Verarbeitung persönlicher Nutzerdaten/Kontoinformationen und ist somit eher account zuzuordnen, da sie kein reines Presse-, Meinungs- oder Testanliegen ohne Produktbezug ist; zumindest ist sie kein klarer other-Fall, da ein konkretes Anliegen zum eigenen Konto/Datenverarbeitung vorliegt.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3107,
+      "output_tokens": 424
+    },
+    {
+      "id": "69",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": false,
+        "urgency_suggested": "low",
+        "urgency_reason": "Es handelt sich um eine Frage ohne genanntes akutes Problem, keine Frist, kein kompletter Funktionsausfall und kein bezifferter Schaden, daher low statt medium.",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Text ist eine sachliche Frage ohne Hinweis auf Beeinträchtigung, Schaden oder wiederholten unbeantworteten Kontakt, daher neutral statt negative."
+      },
+      "input_tokens": 3092,
+      "output_tokens": 385
+    },
+    {
+      "id": "70",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "account",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "high",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Das Ticket ist eine rein sachliche Fehlerbeschreibung ohne Hinweise auf finanziellen Schaden, Datenverlust, Sicherheitsvorfall oder wiederholten/unbeantworteten Kontakt, daher ist neutral statt negative angemessen."
+      },
+      "input_tokens": 3095,
+      "output_tokens": 349
+    },
+    {
+      "id": "71",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "other",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": true,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": ""
+      },
+      "input_tokens": 3131,
+      "output_tokens": 247
+    },
+    {
+      "id": "72",
+      "verdict": {
+        "category_agrees": false,
+        "category_suggested": "billing",
+        "category_reason": "Es geht um die konkrete Abrechnungswährung des eigenen Jahresabos und dadurch entstehende Wechselkursgebühren, also eine konkrete Transaktion im eigenen Vertrag, damit billing statt other.",
+        "urgency_agrees": true,
+        "urgency_suggested": "low",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Es handelt sich um eine sachliche Nachfrage zur Währung ohne eingetretenen Geldverlust, falsche Abbuchung oder sonstige Beeinträchtigung im Sinne der Regeln, daher neutral statt negative."
+      },
+      "input_tokens": 3116,
+      "output_tokens": 415
+    },
+    {
+      "id": "73",
+      "verdict": {
+        "category_agrees": true,
+        "category_suggested": "technical",
+        "category_reason": "",
+        "urgency_agrees": true,
+        "urgency_suggested": "medium",
+        "urgency_reason": "",
+        "sentiment_agrees": false,
+        "sentiment_suggested": "neutral",
+        "sentiment_reason": "Der Nutzer berichtet sachlich einen Bug (Session wird nicht gespeichert, tritt bei jeder 5. Session auf) ohne emotionale Sprache, Geldverlust, Datenverlust oder Hinweis auf wiederholten unbeantworteten Kontakt, daher neutral statt negative."
+      },
+      "input_tokens": 3176,
+      "output_tokens": 361
+    }
+  ]
+}
