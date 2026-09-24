@@ -91,3 +91,12 @@ Klassifikator auf demselben Ticket ebenfalls falsch liegt (Gegenprobe in predict
 Der Judge prüft Label gegen Regeln, nicht Klassifikator gegen Goldset — eine Regellücke, die er
 findet, ist nicht automatisch eine Fehlerquelle. Sie zu schließen kostet aber in jedem Fall
 Schema-Länge, und über den Kopplungseffekt kippt das an anderer Stelle Labels.
+
+## 2026-09-24: Use Case abgeschlossen
+
+Kontext: Der letzte inhaltliche Stand (v3, v4 zurückgenommen, verbleibende
+Widersprüche als bekannte Grenze dokumentiert) ist vom 22.09.2026. Es ist
+nichts mehr offen.
+
+Entscheidung: meta.json auf `done`. Die README ist vollständig, einschließlich
+der drei Pflichtzahlen (Latenz bewusst als Median, Begründung in der README).
